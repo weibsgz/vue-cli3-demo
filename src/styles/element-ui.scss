@@ -1,0 +1,22 @@
+.el-dialog__body {
+  padding: 20px;
+}
+.el-pagination {
+  text-align: right;
+}
+.el-table th {
+  background-color: #eee;
+  color: #000;
+  font-weight: 400;
+}
+
+//数据中心 - 自定义报告 - 添加维度 第一级多选框隐藏
+.el-cascader-panel {
+  .el-cascader-menu:first-child {
+    li.el-cascader-node {
+      label.el-checkbox {
+        display: none;
+      }
+    }
+  }
+}
