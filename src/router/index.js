@@ -2,12 +2,18 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/layout/index";
 import Login from "@/views/login/index";
-import system from "./modules/system";
-import account from "./modules/account";
-import statistics from "./modules/statistics";
-import video from "./modules/video";
+// import system from "./modules/system";
+// import account from "./modules/account";
+// import statistics from "./modules/statistics";
+// import video from "./modules/video";
 
 Vue.use(VueRouter);
+const files = require.context("./modules", false, /\.js$/);
+const routerList = [];
+files.keys().forEach(key => {
+  //files(key).default 取得每一项路由的内容 因为都是default导出
+  routerList.push(files(key).default);
+});
 
 const routes = [
   {
@@ -15,11 +21,12 @@ const routes = [
     name: "Layout",
     component: Layout
   },
-  system,
-  account,
-  statistics,
-  video,
-  { path: "/login", component: Login, meta: { title: "登陆" } },
+  ...routerList,
+  // system,
+  // account,
+  // statistics,
+  // video,
+  { path: "/login", component: Login, meta: { title: "ç™»é™†" } },
   {
     path: "/404",
     component: () => import("@/views/error-page/404"),

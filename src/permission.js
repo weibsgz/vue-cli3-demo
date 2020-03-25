@@ -29,7 +29,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
       //如果还没有获取菜单就先获取菜单
       await store.dispatch("nav/getMenu");
-      await store.dispatch("dict/getPublishManageStatus");
+      // await store.dispatch("dict/getPublishManageStatus");
       const query = Object.assign({ replace: true }, to);
       //如果登录了 就去菜单的第一个子菜单
       if (to.path === "/login") {
